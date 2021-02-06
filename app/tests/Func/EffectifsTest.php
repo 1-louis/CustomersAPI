@@ -7,7 +7,7 @@ namespace App\Tests\Func;
 use Symfony\Component\BrowserKit\Request;
 use Symfony\Flex\Response;
 
-class EffectifsTestF extends AbstractEndPoint
+class EffectifsTest extends AbstractEndPoint
 {
     public function testEffec():void
     {

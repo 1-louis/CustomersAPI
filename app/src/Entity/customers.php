@@ -1,44 +1,49 @@
 <?php
-declare(strict_types=1);
 
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\EffectifRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
-use App\Controller\ApiEffectifController;
+
 use Symfony\Component\Validator\Constraint as Assert;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use App\Controller\CustomersUpdateAtController;
 
 /**
  * @ORM\Entity(repositoryClass=EffectifRepository::class)
  * @var \DateTimeInterface
  *
  *@ApiResource(
- *     paginationItemsPerPage=3,
+ *     attributes={
+ *           "order"={"createdAt":"DESC"}
+ *     },
  *    collectionOperations={
  *                      "get"= {"normalization_context"={"groups"={"readE"}}
  *          },"post"
- *     },
+ *
+ *   },
  *
  *     itemOperations={
- *
  *              "get"={"normalization_context"={"groups"={"Effectif_details_read"}}
- *      },"put",
- *         "patch",
- *          "delete",
- *      "put_updated"={
- *         "method"="PUT",
- *         "path"="/effectif/{id}/updated-at",
- *         "controller"=ApiEffectifController::class,
- *     }
- *
- *     }
+ *      },
+ *         "put",
+ *          "patch",
+ *            "delete",
+ *       "Update-AT"={
+ *                  "method"="POST",
+ *                  "path"="/customers/{id}/Update-at",
+ *                  "controller"=CustomersUpdateAtController::class,
+ *              },
+ *   }
  *  )
+ * @ApiFilter(SearchFilter::class, properties={"id","partial"})
  */
-class Customers
+class customers
 {
     use ResourceId;
 
@@ -65,7 +70,7 @@ class Customers
 
     /**
      * @ORM\Column(type="string", length=25, nullable=true)
-     * @Groups({"Customers:readE","Effectif_details_read"})
+     * @Groups({"customers:readE","Effectif_details_read"})
      *
      */
     private $CIVILITE;
@@ -80,7 +85,7 @@ class Customers
 
     /**
      * @ORM\Column(type="integer", nullable=true)
-     * @Groups({"Customers:readE","Effectif_details_read"})
+     * @Groups({"customers:readE","Effectif_details_read"})
      */
     private $TEL_CONTACT;
 
@@ -135,11 +140,20 @@ class Customers
 
     /**
      * @ORM\ManyToOne(targetEntity=Admin::class, inversedBy="effectifs_id")
-     * @Groups({"readE","Effectif_details_read"})
+     *
      */
     private $Effec_id;
 
-
+    /**
+     * @var DateTimeInterface
+     * @ORM\Column(type="datetime", nullable=false)
+     */
+    private DateTimeInterface $createdAt;
+    /**
+     * @var DateTimeInterface
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private  ?DateTimeInterface $updateAt;
 
     public function getRAISONSOCIALE(): ?string
     {
@@ -318,6 +332,30 @@ class Customers
     {
         $this->Effec_id = $Effec_id;
 
+        return $this;
+    }
+
+    public function getCreatedAt(): DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+
+    public function setCreatedAt(\DateTimeInterface $createdAt)
+    {
+        $this->createdAt = $createdAt;
+        return $this;
+    }
+
+
+    public function getUpdateAt(): ?DateTimeInterface
+    {
+        return $this->updateAt;
+    }
+
+    public function setUpdateAt(?DateTimeInterface $updateAt)
+    {
+        $this->updateAt = $updateAt;
         return $this;
     }
 }

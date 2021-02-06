@@ -2,12 +2,12 @@
 
 
 namespace App\Tests\Func;
-
+use App\Entity\customers;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\BrowserKit\Request;
 
-abstract class AbstractEndPoint extends WebTestCase
+abstract class AbstractEndTest extends WebTestCase
 {
     private array $serverInformations = ['ACCEPT'=>'application/json', 'CONTENT_TYPE'=>'application/json'];
 

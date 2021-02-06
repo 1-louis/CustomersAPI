@@ -4,7 +4,7 @@ namespace App\Tests\Unit;
 
 
 use App\Entity\Admin;
-use App\Entity\Customers;
+use App\Entity\customers;
 use PHPUnit\Framework\TestCase;
 
 class ConstomersTest extends TestCase {
@@ -37,7 +37,7 @@ class ConstomersTest extends TestCase {
     }
     public function testGetEffect(): void
     {
-        $value = new Customers();
+        $value = new customers();
         self::assertInstanceOf(Admin::class, $response);
         self::assertCount( 1,$this->custom->getEffectifsId());
         self::assertTrue($this->custom->getEffectifsId()->contains($value));

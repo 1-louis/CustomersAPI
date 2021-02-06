@@ -11,11 +11,16 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
 use DateTimeInterface;
+use App\Controller\CustomersUpdateAtController;
+
 /**
  * @ORM\Entity(repositoryClass=CustomersRepository::class)
  * @var \DateTimeInterface
  * @ApiResource(
  *     paginationItemsPerPage=3,
+ *   attributes={
+ *              "order"={"publsheAt":"DESC"}
+ *     },
  *    collectionOperations={
  *                      "get"= {"normalization_context"={"groups"={"Customers_read"}}
  *          },"post"
@@ -27,6 +32,11 @@ use DateTimeInterface;
  *      },"put",
  *         "patch",
  *          "delete",
+ *             "Update-AT"={
+ *                  "method"="POST",
+ *                  "path"="/Admin/{id}/Update-at",
+ *                  "controller"=CustomersUpdateAtController::class,
+ *              },
  *
  *
  *     }
@@ -49,7 +59,7 @@ class Admin implements UserInterface
     private $roles = [];
 
     /**
-     * @ORM\OneToMany(targetEntity=Customers::class, mappedBy="Effec_id")
+     * @ORM\OneToMany(targetEntity=customers::class, mappedBy="Effec_id")
      */
     private $effectifs_id;
 
@@ -64,7 +74,6 @@ class Admin implements UserInterface
      */
     private  ?DateTimeInterface $updateAt;
 
-    ////////////////////////////////////////////////////
     public function getCreatedAt(): DateTimeInterface
     {
         return $this->createdAt;
@@ -88,7 +97,6 @@ class Admin implements UserInterface
         $this->updateAt = $updateAt;
         return $this;
     }
-//////////////////////////////////////////////////////////////////
    public function __construct()
     {
         $this->effectifs_id = new ArrayCollection();
@@ -115,7 +123,7 @@ class Admin implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->EMAIL_CONTACT;
+        return (string) $this->EMAIL;
     }
 
     /**
@@ -163,19 +171,15 @@ class Admin implements UserInterface
     }
 
 
-
-    ///////////////////////////////////////////////////////
-    ///
-
     /**
-     * @return Collection|Customers[]
+     * @return Collection|customers[]
      */
     public function getEffectifsId(): Collection
     {
         return $this->effectifs_id;
     }
 
-    public function addEffectifsId(Customers $effectifsId): self
+    public function addEffectifsId(customers $effectifsId): self
     {
         if (!$this->effectifs_id->contains($effectifsId)) {
             $this->effectifs_id[] = $effectifsId;
@@ -185,7 +189,7 @@ class Admin implements UserInterface
         return $this;
     }
 
-    public function removeEffectifsId(Customers $effectifsId): self
+    public function removeEffectifsId(customers $effectifsId): self
     {
         if ($this->effectifs_id->removeElement($effectifsId)) {
             // set the owning side to null (unless already changed)

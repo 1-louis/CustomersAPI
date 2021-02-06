@@ -7,8 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\BrowserKit\Request;
 use Symfony\Flex\Response;
 use Faker\Factory;
+use App\Tests\Func\AbstractEnd_Test;
 
-class ConstomerstestF extends AbstractEndPoint {
+class ConstomersTest extends AbstractEndPoint {
     private string $CunstomersPayload = '{"EMAIL": "%S"}';
 
     public function testGetCustomer(): void
