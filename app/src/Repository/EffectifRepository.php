@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Effectif;
+use App\Entity\Customers;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Effectif|null find($id, $lockMode = null, $lockVersion = null)
- * @method Effectif|null findOneBy(array $criteria, array $orderBy = null)
- * @method Effectif[]    findAll()
- * @method Effectif[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Customers|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Customers|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Customers[]    findAll()
+ * @method Customers[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class EffectifRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Effectif::class);
+        parent::__construct($registry, Customers::class);
     }
 
     // /**
-    //  * @return Effectif[] Returns an array of Effectif objects
+    //  * @return Customers[] Returns an array of Customers objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class EffectifRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Effectif
+    public function findOneBySomeField($value): ?Customers
     {
         return $this->createQueryBuilder('e')
             ->andWhere('e.exampleField = :val')

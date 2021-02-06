@@ -1,8 +1,8 @@
 <?php
 
 namespace App\DataFixtures;
+use App\Entity\Admin;
 use App\Entity\Customers;
-use App\Entity\Effectif;
 use App\Entity\Timetable;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -18,7 +18,7 @@ class AppFixtures extends Fixture
         // $manager->persist($product);
         $fake = Factory::create();
         for($c=0; $c< 10; $c++){
-            $custom = new Customers();
+            $custom = new Admin();
 
                 $custom->setEMAIL($fake->email)
                 ->setCreatedAt($fake->dateTime)
@@ -28,7 +28,7 @@ class AppFixtures extends Fixture
 
                 for ($e = 0; $e < random_int(5, 15); $e++) {
 
-                        $Effec = (new Effectif())->setEffecId($custom)
+                        $Effec = (new Customers())->setEffecId($custom)
                             ->setRAISONSOCIALE($fake->text(30))
                             ->setNOMCONTACT($fake->text(20))
                             ->setPRENOMCONTACT($fake->text(20))

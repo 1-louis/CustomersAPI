@@ -3,202 +3,321 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
-use App\Repository\CustomersRepository;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
 use ApiPlatform\Core\Annotation\ApiResource;
-use Doctrine\Common\Collections\ArrayCollection;
+use App\Repository\EffectifRepository;
+use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
-use DateTimeInterface;
+use App\Controller\ApiEffectifController;
+use Symfony\Component\Validator\Constraint as Assert;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
+
+
 /**
- * @ORM\Entity(repositoryClass=CustomersRepository::class)
+ * @ORM\Entity(repositoryClass=EffectifRepository::class)
  * @var \DateTimeInterface
- * @ApiResource(
+ *
+ *@ApiResource(
  *     paginationItemsPerPage=3,
  *    collectionOperations={
- *                      "get"= {"normalization_context"={"groups"={"Customers_read"}}
+ *                      "get"= {"normalization_context"={"groups"={"readE"}}
  *          },"post"
  *     },
  *
  *     itemOperations={
  *
- *              "get"={"normalization_context"={"groups"={"Customers_details_read"}}
+ *              "get"={"normalization_context"={"groups"={"Effectif_details_read"}}
  *      },"put",
  *         "patch",
  *          "delete",
- *
+ *      "put_updated"={
+ *         "method"="PUT",
+ *         "path"="/effectif/{id}/updated-at",
+ *         "controller"=ApiEffectifController::class,
+ *     }
  *
  *     }
  *  )
  */
-class Customers implements UserInterface
+class Customers
 {
     use ResourceId;
 
     /**
-     * @ORM\Column(type="string", length=180, unique=true)
-     * @Groups ({"Customers_read","Customers_details_read"})
-     */
-    private $EMAIL;
-
-    /**
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"readE","Effectif_details_read"})
      *
      */
-    private $roles = [];
+    private $RAISON_SOCIALE;
 
     /**
-     * @ORM\OneToMany(targetEntity=Effectif::class, mappedBy="Effec_id")
-     */
-    private $effectifs_id;
-
-    /**
-     * @var DateTimeInterface
-     * @ORM\Column(type="datetime", nullable=false)
-     */
-    private DateTimeInterface $createdAt;
-    /**
-     * @var DateTimeInterface
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private  ?DateTimeInterface $updateAt;
-
-    ////////////////////////////////////////////////////
-    public function getCreatedAt(): DateTimeInterface
-    {
-        return $this->createdAt;
-    }
-
-
-       public function setCreatedAt(\DateTimeInterface $createdAt)
-       {
-           $this->createdAt = $createdAt;
-           return $this;
-       }
-
-
-    public function getUpdateAt(): ?DateTimeInterface
-    {
-        return $this->updateAt;
-    }
-
-    public function setUpdateAt(?DateTimeInterface $updateAt)
-    {
-        $this->updateAt = $updateAt;
-        return $this;
-    }
-//////////////////////////////////////////////////////////////////
-   public function __construct()
-    {
-        $this->effectifs_id = new ArrayCollection();
-    }
-
-
-
-    public function getEMAIL(): ?string
-    {
-        return $this->EMAIL;
-    }
-
-    public function setEMAIL(string $EMAIL): self
-    {
-        $this->EMAIL = $EMAIL;
-
-        return $this;
-    }
-
-    /**
-     * A visual identifier that represents this user.
+     * @ORM\Column(type="string", length=180, nullable=true)
+     * @Groups({"readE","Effectif_details_read"})
      *
-     * @see UserInterface
      */
-    public function getUsername(): string
-    {
-        return (string) $this->EMAIL_CONTACT;
-    }
+    private $NOM_CONTACT;
 
     /**
-     * @see UserInterface
+     * @ORM\Column(type="string", length=180, nullable=true)
+     * @Groups({"readE","Effectif_details_read"})
+     *
      */
-    public function getRoles(): array
-    {
-        $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
+    private $PRENOM_CONTACT;
 
-        return array_unique($roles);
+    /**
+     * @ORM\Column(type="string", length=25, nullable=true)
+     * @Groups({"Customers:readE","Effectif_details_read"})
+     *
+     */
+    private $CIVILITE;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"readE","Effectif_details_read"})
+     *
+     */
+    private $FONCTION;
+
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @Groups({"Customers:readE","Effectif_details_read"})
+     */
+    private $TEL_CONTACT;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @Groups({"readE","Effectif_details_read"})
+     */
+    private $PORTABLE_CONTACT;
+
+    /**
+     * @ORM\Column(type="string",  length=180, nullable=true)
+     * @Groups({"readE","Effectif_details_read"})
+     */
+    private $EMAIL_CONTACT;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     * @Groups({"readE","Effectif_details_read"})
+     */
+    private $ADRESSE_1;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     * @Groups({"readE","Effectif_details_read"})
+     */
+    private $ADRESSE_2;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @Groups({"readE","Effectif_details_read"})
+     */
+    private $CODE_POSTAL_ENTREPRISE;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"readE","Effectif_details_read"})
+     */
+    private $VILLE_ENTREPRISE;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @Groups({"readE","Effectif_details_read"})
+     */
+    private $TELEPHONE_ENTREPRISE;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @Groups({"readE","Effectif_details_read"})
+     */
+    private $EFFECTIF;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Admin::class, inversedBy="effectifs_id")
+     * @Groups({"readE","Effectif_details_read"})
+     */
+    private $Effec_id;
+
+
+
+    public function getRAISONSOCIALE(): ?string
+    {
+        return $this->RAISON_SOCIALE;
     }
 
-    public function setRoles(array $roles): self
+    public function setRAISONSOCIALE(?string $RAISON_SOCIALE): self
     {
-        $this->roles = $roles;
+        $this->RAISON_SOCIALE = $RAISON_SOCIALE;
 
         return $this;
     }
 
-    /**
-     * @see UserInterface
-     */
-    public function getPassword()
+    public function getNOMCONTACT(): ?string
     {
-        // not needed for apps that do not check user passwords
+        return $this->NOM_CONTACT;
     }
 
-    /**
-     * @see UserInterface
-     */
-    public function getSalt()
+    public function setNOMCONTACT(?string $NOM_CONTACT): self
     {
-        // not needed for apps that do not check user passwords
-    }
-
-    /**
-     * @see UserInterface
-     */
-    public function eraseCredentials()
-    {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
-    }
-
-
-
-    ///////////////////////////////////////////////////////
-    ///
-
-    /**
-     * @return Collection|Effectif[]
-     */
-    public function getEffectifsId(): Collection
-    {
-        return $this->effectifs_id;
-    }
-
-    public function addEffectifsId(Effectif $effectifsId): self
-    {
-        if (!$this->effectifs_id->contains($effectifsId)) {
-            $this->effectifs_id[] = $effectifsId;
-            $effectifsId->setEffecId($this);
-        }
+        $this->NOM_CONTACT = $NOM_CONTACT;
 
         return $this;
     }
 
-    public function removeEffectifsId(Effectif $effectifsId): self
+    public function getPRENOMCONTACT(): ?string
     {
-        if ($this->effectifs_id->removeElement($effectifsId)) {
-            // set the owning side to null (unless already changed)
-            if ($effectifsId->getEffecId() === $this) {
-                $effectifsId->setEffecId(null);
-            }
-        }
+        return $this->PRENOM_CONTACT;
+    }
+
+    public function setPRENOMCONTACT(?string $PRENOM_CONTACT): self
+    {
+        $this->PRENOM_CONTACT = $PRENOM_CONTACT;
 
         return $this;
     }
 
+    public function getCIVILITE(): ?string
+    {
+        return $this->CIVILITE;
+    }
 
+    public function setCIVILITE(?string $CIVILITE): self
+    {
+        $this->CIVILITE = $CIVILITE;
 
+        return $this;
+    }
 
+    public function getFONCTION(): ?string
+    {
+        return $this->FONCTION;
+    }
 
+    public function setFONCTION(?string $FONCTION): self
+    {
+        $this->FONCTION = $FONCTION;
+
+        return $this;
+    }
+
+    public function getTELCONTACT(): ?int
+    {
+        return $this->TEL_CONTACT;
+    }
+
+    public function setTELCONTACT(?int $TEL_CONTACT): self
+    {
+        $this->TEL_CONTACT = $TEL_CONTACT;
+
+        return $this;
+    }
+
+    public function getPORTABLECONTACT(): ?int
+    {
+        return $this->PORTABLE_CONTACT;
+    }
+
+    public function setPORTABLECONTACT(?int $PORTABLE_CONTACT): self
+    {
+        $this->PORTABLE_CONTACT = $PORTABLE_CONTACT;
+
+        return $this;
+    }
+
+    public function getEMAILCONTACT(): ?string
+    {
+        return $this->EMAIL_CONTACT;
+    }
+
+    public function setEMAILCONTACT(string $EMAIL_CONTACT): self
+    {
+        $this->EMAIL_CONTACT = $EMAIL_CONTACT;
+
+        return $this;
+    }
+
+    public function getADRESSE1(): ?string
+    {
+        return $this->ADRESSE_1;
+    }
+
+    public function setADRESSE1(?string $ADRESSE_1): self
+    {
+        $this->ADRESSE_1 = $ADRESSE_1;
+
+        return $this;
+    }
+
+    public function getADRESSE2(): ?string
+    {
+        return $this->ADRESSE_2;
+    }
+
+    public function setADRESSE2(?string $ADRESSE_2): self
+    {
+        $this->ADRESSE_2 = $ADRESSE_2;
+
+        return $this;
+    }
+
+    public function getCODEPOSTALENTREPRISE(): ?int
+    {
+        return $this->CODE_POSTAL_ENTREPRISE;
+    }
+
+    public function setCODEPOSTALENTREPRISE(?int $CODE_POSTAL_ENTREPRISE): self
+    {
+        $this->CODE_POSTAL_ENTREPRISE = $CODE_POSTAL_ENTREPRISE;
+
+        return $this;
+    }
+
+    public function getVILLEENTREPRISE(): ?string
+    {
+        return $this->VILLE_ENTREPRISE;
+    }
+
+    public function setVILLEENTREPRISE(?string $VILLE_ENTREPRISE): self
+    {
+        $this->VILLE_ENTREPRISE = $VILLE_ENTREPRISE;
+
+        return $this;
+    }
+
+    public function getTELEPHONEENTREPRISE(): ?int
+    {
+        return $this->TELEPHONE_ENTREPRISE;
+    }
+
+    public function setTELEPHONEENTREPRISE(?int $TELEPHONE_ENTREPRISE): self
+    {
+        $this->TELEPHONE_ENTREPRISE = $TELEPHONE_ENTREPRISE;
+
+        return $this;
+    }
+
+    public function getEFFECTIF(): ?int
+    {
+        return $this->EFFECTIF;
+    }
+
+    public function setEFFECTIF(?int $EFFECTIF): self
+    {
+        $this->EFFECTIF = $EFFECTIF;
+
+        return $this;
+    }
+
+    public function getEffecId(): ?Admin
+    {
+        return $this->Effec_id;
+    }
+
+    public function setEffecId(?Admin $Effec_id): self
+    {
+        $this->Effec_id = $Effec_id;
+
+        return $this;
+    }
 }

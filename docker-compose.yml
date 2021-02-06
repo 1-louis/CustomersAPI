@@ -12,23 +12,27 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
-      - "9999:80"
+      - "8081:80"
     depends_on:
       - db
 
   php:
-    build: .
+    build: docker/php
     ports:
-      - "8888:80"
+      - "8000:80"
     depends_on:
       - db
     volumes:
       - ./docker/vhosts:/etc/apache2/sites-enabled
       - ./app:/var/www
 
+
   mailer:
     image: schickling/mailcatcher
     ports:
       - "1025:25"
       - "1080:1080"
+
+    restart: always
+
 

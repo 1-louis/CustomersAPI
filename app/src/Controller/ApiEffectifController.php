@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Effectif;
+use App\Entity\Customers;
 use App\Repository\EffectifRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Lcobucci\JWT\Validator;

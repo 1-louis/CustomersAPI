@@ -1,0 +1,1824 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "",
+        "description": "",
+        "version": "0.0.0"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": ""
+        }
+    ],
+    "paths": {
+        "/api/customers/{id}": {
+            "get": {
+                "operationId": "getCustomersItem",
+                "tags": [
+                    "Customers"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Customers resource",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Customers.jsonld-Customers_details_read"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Customers-Customers_details_read"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Customers-Customers_details_read"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Retrieves a Customers resource.",
+                "description": "Retrieves a Customers resource.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple"
+                    }
+                ],
+                "deprecated": false
+            },
+            "put": {
+                "operationId": "putCustomersItem",
+                "tags": [
+                    "Customers"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Customers resource updated",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Customers.jsonld"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Customers"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Customers"
+                                }
+                            }
+                        },
+                        "links": {
+                            "GetCustomersItem": {
+                                "operationId": "getCustomersItem",
+                                "parameters": {
+                                    "id": "$response.body#/id"
+                                },
+                                "requestBody": [],
+                                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /api/customers/{id}`."
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Replaces the Customers resource.",
+                "description": "Replaces the Customers resource.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple"
+                    }
+                ],
+                "requestBody": {
+                    "description": "The updated Customers resource",
+                    "content": {
+                        "application/ld+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Customers.jsonld"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Customers"
+                            }
+                        },
+                        "text/html": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Customers"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "operationId": "deleteCustomersItem",
+                "tags": [
+                    "Customers"
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Customers resource deleted"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Removes the Customers resource.",
+                "description": "Removes the Customers resource.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple"
+                    }
+                ],
+                "deprecated": false
+            },
+            "patch": {
+                "operationId": "patchCustomersItem",
+                "tags": [
+                    "Customers"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Customers resource updated",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Customers.jsonld"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Customers"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Customers"
+                                }
+                            }
+                        },
+                        "links": {
+                            "GetCustomersItem": {
+                                "operationId": "getCustomersItem",
+                                "parameters": {
+                                    "id": "$response.body#/id"
+                                },
+                                "requestBody": [],
+                                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /api/customers/{id}`."
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Updates the Customers resource.",
+                "description": "Updates the Customers resource.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple"
+                    }
+                ],
+                "requestBody": {
+                    "description": "The updated Customers resource",
+                    "content": {
+                        "application/merge-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Customers"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "deprecated": false
+            },
+            "parameters": []
+        },
+        "/api/customers": {
+            "get": {
+                "operationId": "getCustomersCollection",
+                "tags": [
+                    "Customers"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Customers collection",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "hydra:member": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Customers.jsonld-Customers_read"
+                                            }
+                                        },
+                                        "hydra:totalItems": {
+                                            "type": "integer",
+                                            "minimum": 0
+                                        },
+                                        "hydra:view": {
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "type": "string",
+                                                    "format": "iri-reference"
+                                                },
+                                                "@type": {
+                                                    "type": "string"
+                                                },
+                                                "hydra:first": {
+                                                    "type": "string",
+                                                    "format": "iri-reference"
+                                                },
+                                                "hydra:last": {
+                                                    "type": "string",
+                                                    "format": "iri-reference"
+                                                },
+                                                "hydra:next": {
+                                                    "type": "string",
+                                                    "format": "iri-reference"
+                                                }
+                                            }
+                                        },
+                                        "hydra:search": {
+                                            "type": "object",
+                                            "properties": {
+                                                "@type": {
+                                                    "type": "string"
+                                                },
+                                                "hydra:template": {
+                                                    "type": "string"
+                                                },
+                                                "hydra:variableRepresentation": {
+                                                    "type": "string"
+                                                },
+                                                "hydra:mapping": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "@type": {
+                                                                "type": "string"
+                                                            },
+                                                            "variable": {
+                                                                "type": "string"
+                                                            },
+                                                            "property": {
+                                                                "type": "string",
+                                                                "nullable": true
+                                                            },
+                                                            "required": {
+                                                                "type": "boolean"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "hydra:member"
+                                    ]
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Customers-Customers_read"
+                                    }
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Customers-Customers_read"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieves the collection of Customers resources.",
+                "description": "Retrieves the collection of Customers resources.",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The collection page number",
+                        "required": false,
+                        "deprecated": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        },
+                        "style": "form"
+                    }
+                ],
+                "deprecated": false
+            },
+            "post": {
+                "operationId": "postCustomersCollection",
+                "tags": [
+                    "Customers"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Customers resource created",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Customers.jsonld"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Customers"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Customers"
+                                }
+                            }
+                        },
+                        "links": {
+                            "GetCustomersItem": {
+                                "operationId": "getCustomersItem",
+                                "parameters": {
+                                    "id": "$response.body#/id"
+                                },
+                                "requestBody": [],
+                                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /api/customers/{id}`."
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    }
+                },
+                "summary": "Creates a Customers resource.",
+                "description": "Creates a Customers resource.",
+                "parameters": [],
+                "requestBody": {
+                    "description": "The new Customers resource",
+                    "content": {
+                        "application/ld+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Customers.jsonld"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Customers"
+                            }
+                        },
+                        "text/html": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Customers"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "deprecated": false
+            },
+            "parameters": []
+        },
+        "/api/effectifs/{id}": {
+            "get": {
+                "operationId": "getEffectifItem",
+                "tags": [
+                    "Effectif"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Effectif resource",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Effectif.jsonld-Effectif_details_read"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Effectif-Effectif_details_read"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Effectif-Effectif_details_read"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Retrieves a Effectif resource.",
+                "description": "Retrieves a Effectif resource.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple"
+                    }
+                ],
+                "deprecated": false
+            },
+            "put": {
+                "operationId": "putEffectifItem",
+                "tags": [
+                    "Effectif"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Effectif resource updated",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Effectif.jsonld"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Effectif"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Effectif"
+                                }
+                            }
+                        },
+                        "links": {
+                            "GetEffectifItem": {
+                                "operationId": "getEffectifItem",
+                                "parameters": {
+                                    "id": "$response.body#/id"
+                                },
+                                "requestBody": [],
+                                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /api/effectifs/{id}`."
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Replaces the Effectif resource.",
+                "description": "Replaces the Effectif resource.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple"
+                    }
+                ],
+                "requestBody": {
+                    "description": "The updated Effectif resource",
+                    "content": {
+                        "application/ld+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Effectif.jsonld"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Effectif"
+                            }
+                        },
+                        "text/html": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Effectif"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "operationId": "deleteEffectifItem",
+                "tags": [
+                    "Effectif"
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Effectif resource deleted"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Removes the Effectif resource.",
+                "description": "Removes the Effectif resource.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple"
+                    }
+                ],
+                "deprecated": false
+            },
+            "patch": {
+                "operationId": "patchEffectifItem",
+                "tags": [
+                    "Effectif"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Effectif resource updated",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Effectif.jsonld"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Effectif"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Effectif"
+                                }
+                            }
+                        },
+                        "links": {
+                            "GetEffectifItem": {
+                                "operationId": "getEffectifItem",
+                                "parameters": {
+                                    "id": "$response.body#/id"
+                                },
+                                "requestBody": [],
+                                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /api/effectifs/{id}`."
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Updates the Effectif resource.",
+                "description": "Updates the Effectif resource.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple"
+                    }
+                ],
+                "requestBody": {
+                    "description": "The updated Effectif resource",
+                    "content": {
+                        "application/merge-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Effectif"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "deprecated": false
+            },
+            "parameters": []
+        },
+        "/api/effectif/{id}/updated-at": {
+            "put": {
+                "operationId": "put_updatedEffectifItem",
+                "tags": [
+                    "Effectif"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Effectif resource updated",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Effectif.jsonld"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Effectif"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Effectif"
+                                }
+                            }
+                        },
+                        "links": {
+                            "GetEffectifItem": {
+                                "operationId": "getEffectifItem",
+                                "parameters": {
+                                    "id": "$response.body#/id"
+                                },
+                                "requestBody": [],
+                                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /api/effectifs/{id}`."
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Replaces the Effectif resource.",
+                "description": "Replaces the Effectif resource.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Resource identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple"
+                    }
+                ],
+                "requestBody": {
+                    "description": "The updated Effectif resource",
+                    "content": {
+                        "application/ld+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Effectif.jsonld"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Effectif"
+                            }
+                        },
+                        "text/html": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Effectif"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "deprecated": false
+            },
+            "parameters": []
+        },
+        "/api/effectifs": {
+            "get": {
+                "operationId": "getEffectifCollection",
+                "tags": [
+                    "Effectif"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Effectif collection",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "hydra:member": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Effectif.jsonld-readE"
+                                            }
+                                        },
+                                        "hydra:totalItems": {
+                                            "type": "integer",
+                                            "minimum": 0
+                                        },
+                                        "hydra:view": {
+                                            "type": "object",
+                                            "properties": {
+                                                "@id": {
+                                                    "type": "string",
+                                                    "format": "iri-reference"
+                                                },
+                                                "@type": {
+                                                    "type": "string"
+                                                },
+                                                "hydra:first": {
+                                                    "type": "string",
+                                                    "format": "iri-reference"
+                                                },
+                                                "hydra:last": {
+                                                    "type": "string",
+                                                    "format": "iri-reference"
+                                                },
+                                                "hydra:next": {
+                                                    "type": "string",
+                                                    "format": "iri-reference"
+                                                }
+                                            }
+                                        },
+                                        "hydra:search": {
+                                            "type": "object",
+                                            "properties": {
+                                                "@type": {
+                                                    "type": "string"
+                                                },
+                                                "hydra:template": {
+                                                    "type": "string"
+                                                },
+                                                "hydra:variableRepresentation": {
+                                                    "type": "string"
+                                                },
+                                                "hydra:mapping": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "@type": {
+                                                                "type": "string"
+                                                            },
+                                                            "variable": {
+                                                                "type": "string"
+                                                            },
+                                                            "property": {
+                                                                "type": "string",
+                                                                "nullable": true
+                                                            },
+                                                            "required": {
+                                                                "type": "boolean"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "hydra:member"
+                                    ]
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Effectif-readE"
+                                    }
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Effectif-readE"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieves the collection of Effectif resources.",
+                "description": "Retrieves the collection of Effectif resources.",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The collection page number",
+                        "required": false,
+                        "deprecated": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        },
+                        "style": "form"
+                    }
+                ],
+                "deprecated": false
+            },
+            "post": {
+                "operationId": "postEffectifCollection",
+                "tags": [
+                    "Effectif"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Effectif resource created",
+                        "content": {
+                            "application/ld+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Effectif.jsonld"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Effectif"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Effectif"
+                                }
+                            }
+                        },
+                        "links": {
+                            "GetEffectifItem": {
+                                "operationId": "getEffectifItem",
+                                "parameters": {
+                                    "id": "$response.body#/id"
+                                },
+                                "requestBody": [],
+                                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /api/effectifs/{id}`."
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    }
+                },
+                "summary": "Creates a Effectif resource.",
+                "description": "Creates a Effectif resource.",
+                "parameters": [],
+                "requestBody": {
+                    "description": "The new Effectif resource",
+                    "content": {
+                        "application/ld+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Effectif.jsonld"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Effectif"
+                            }
+                        },
+                        "text/html": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Effectif"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "deprecated": false
+            },
+            "parameters": []
+        }
+    },
+    "components": {
+        "schemas": {
+            "Customers.jsonld-Customers_details_read": {
+                "type": "object",
+                "description": "",
+                "properties": {
+                    "@context": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "@id": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "@type": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "EMAIL": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Customers-Customers_details_read": {
+                "type": "object",
+                "description": "",
+                "properties": {
+                    "EMAIL": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Customers.jsonld": {
+                "type": "object",
+                "description": "",
+                "properties": {
+                    "@context": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "@id": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "@type": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "EMAIL": {
+                        "type": "string"
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "effectifs_id": {
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "iri-reference"
+                        }
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updateAt": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "type": "integer"
+                    },
+                    "eMAIL": {
+                        "type": "string"
+                    },
+                    "username": {
+                        "readOnly": true,
+                        "description": "A visual identifier that represents this user.",
+                        "type": "string"
+                    },
+                    "password": {
+                        "readOnly": true
+                    },
+                    "salt": {
+                        "readOnly": true
+                    },
+                    "effectifsId": {
+                        "$ref": "#/components/schemas/Collection.jsonld"
+                    }
+                }
+            },
+            "Collection.jsonld": {
+                "type": "object",
+                "properties": {
+                    "@context": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "@id": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "@type": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "empty": {
+                        "readOnly": true,
+                        "description": "Checks whether the collection is empty (contains no elements).",
+                        "type": "boolean"
+                    },
+                    "keys": {
+                        "readOnly": true,
+                        "description": "Gets all keys/indices of the collection.",
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "values": {
+                        "readOnly": true,
+                        "description": "Gets all values of the collection.",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "iterator": {
+                        "readOnly": true
+                    }
+                }
+            },
+            "Customers": {
+                "type": "object",
+                "description": "",
+                "properties": {
+                    "EMAIL": {
+                        "type": "string"
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "effectifs_id": {
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "iri-reference"
+                        }
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updateAt": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "type": "integer"
+                    },
+                    "eMAIL": {
+                        "type": "string"
+                    },
+                    "username": {
+                        "readOnly": true,
+                        "description": "A visual identifier that represents this user.",
+                        "type": "string"
+                    },
+                    "password": {
+                        "readOnly": true
+                    },
+                    "salt": {
+                        "readOnly": true
+                    },
+                    "effectifsId": {
+                        "$ref": "#/components/schemas/Collection"
+                    }
+                }
+            },
+            "Collection": {
+                "type": "object",
+                "properties": {
+                    "empty": {
+                        "readOnly": true,
+                        "description": "Checks whether the collection is empty (contains no elements).",
+                        "type": "boolean"
+                    },
+                    "keys": {
+                        "readOnly": true,
+                        "description": "Gets all keys/indices of the collection.",
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "values": {
+                        "readOnly": true,
+                        "description": "Gets all values of the collection.",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "iterator": {
+                        "readOnly": true
+                    }
+                }
+            },
+            "Customers.jsonld-Customers_read": {
+                "type": "object",
+                "description": "",
+                "properties": {
+                    "@id": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "@type": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "EMAIL": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Customers-Customers_read": {
+                "type": "object",
+                "description": "",
+                "properties": {
+                    "EMAIL": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Effectif.jsonld-Effectif_details_read": {
+                "type": "object",
+                "description": "",
+                "properties": {
+                    "@context": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "@id": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "@type": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "RAISON_SOCIALE": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "NOM_CONTACT": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "PRENOM_CONTACT": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "CIVILITE": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "FONCTION": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "TEL_CONTACT": {
+                        "readOnly": true,
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "PORTABLE_CONTACT": {
+                        "readOnly": true,
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "EMAIL_CONTACT": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "ADRESSE_1": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "ADRESSE_2": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "CODE_POSTAL_ENTREPRISE": {
+                        "readOnly": true,
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "VILLE_ENTREPRISE": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "TELEPHONE_ENTREPRISE": {
+                        "readOnly": true,
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "EFFECTIF": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "Effec_id": {
+                        "readOnly": true,
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    }
+                }
+            },
+            "Effectif-Effectif_details_read": {
+                "type": "object",
+                "description": "",
+                "properties": {
+                    "RAISON_SOCIALE": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "NOM_CONTACT": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "PRENOM_CONTACT": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "CIVILITE": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "FONCTION": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "TEL_CONTACT": {
+                        "readOnly": true,
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "PORTABLE_CONTACT": {
+                        "readOnly": true,
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "EMAIL_CONTACT": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "ADRESSE_1": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "ADRESSE_2": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "CODE_POSTAL_ENTREPRISE": {
+                        "readOnly": true,
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "VILLE_ENTREPRISE": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "TELEPHONE_ENTREPRISE": {
+                        "readOnly": true,
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "EFFECTIF": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "Effec_id": {
+                        "readOnly": true,
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    }
+                }
+            },
+            "Effectif.jsonld": {
+                "type": "object",
+                "description": "",
+                "properties": {
+                    "@context": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "@id": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "@type": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "RAISON_SOCIALE": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "NOM_CONTACT": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "PRENOM_CONTACT": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "CIVILITE": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "FONCTION": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "TEL_CONTACT": {
+                        "readOnly": true,
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "PORTABLE_CONTACT": {
+                        "readOnly": true,
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "EMAIL_CONTACT": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "ADRESSE_1": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "ADRESSE_2": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "CODE_POSTAL_ENTREPRISE": {
+                        "readOnly": true,
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "VILLE_ENTREPRISE": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "TELEPHONE_ENTREPRISE": {
+                        "readOnly": true,
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "EFFECTIF": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "Effec_id": {
+                        "readOnly": true,
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "type": "integer"
+                    },
+                    "rAISONSOCIALE": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "nOMCONTACT": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "pRENOMCONTACT": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "cIVILITE": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "fONCTION": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tELCONTACT": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "pORTABLECONTACT": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "eMAILCONTACT": {
+                        "type": "string"
+                    },
+                    "aDRESSE1": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "aDRESSE2": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "cODEPOSTALENTREPRISE": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "vILLEENTREPRISE": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tELEPHONEENTREPRISE": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "eFFECTIF": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "effecId": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    }
+                }
+            },
+            "Effectif": {
+                "type": "object",
+                "description": "",
+                "properties": {
+                    "RAISON_SOCIALE": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "NOM_CONTACT": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "PRENOM_CONTACT": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "CIVILITE": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "FONCTION": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "TEL_CONTACT": {
+                        "readOnly": true,
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "PORTABLE_CONTACT": {
+                        "readOnly": true,
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "EMAIL_CONTACT": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "ADRESSE_1": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "ADRESSE_2": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "CODE_POSTAL_ENTREPRISE": {
+                        "readOnly": true,
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "VILLE_ENTREPRISE": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "TELEPHONE_ENTREPRISE": {
+                        "readOnly": true,
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "EFFECTIF": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "Effec_id": {
+                        "readOnly": true,
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "type": "integer"
+                    },
+                    "rAISONSOCIALE": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "nOMCONTACT": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "pRENOMCONTACT": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "cIVILITE": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "fONCTION": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tELCONTACT": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "pORTABLECONTACT": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "eMAILCONTACT": {
+                        "type": "string"
+                    },
+                    "aDRESSE1": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "aDRESSE2": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "cODEPOSTALENTREPRISE": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "vILLEENTREPRISE": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tELEPHONEENTREPRISE": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "eFFECTIF": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "effecId": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    }
+                }
+            },
+            "Effectif.jsonld-readE": {
+                "type": "object",
+                "description": "",
+                "properties": {
+                    "@id": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "@type": {
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "RAISON_SOCIALE": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "NOM_CONTACT": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "PRENOM_CONTACT": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "FONCTION": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "PORTABLE_CONTACT": {
+                        "readOnly": true,
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "EMAIL_CONTACT": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "ADRESSE_1": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "ADRESSE_2": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "CODE_POSTAL_ENTREPRISE": {
+                        "readOnly": true,
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "VILLE_ENTREPRISE": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "TELEPHONE_ENTREPRISE": {
+                        "readOnly": true,
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "EFFECTIF": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "Effec_id": {
+                        "readOnly": true,
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    }
+                }
+            },
+            "Effectif-readE": {
+                "type": "object",
+                "description": "",
+                "properties": {
+                    "RAISON_SOCIALE": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "NOM_CONTACT": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "PRENOM_CONTACT": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "FONCTION": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "PORTABLE_CONTACT": {
+                        "readOnly": true,
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "EMAIL_CONTACT": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "ADRESSE_1": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "ADRESSE_2": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "CODE_POSTAL_ENTREPRISE": {
+                        "readOnly": true,
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "VILLE_ENTREPRISE": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "TELEPHONE_ENTREPRISE": {
+                        "readOnly": true,
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "EFFECTIF": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "Effec_id": {
+                        "readOnly": true,
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    }
+                }
+            }
+        },
+        "responses": {},
+        "parameters": {},
+        "examples": {},
+        "requestBodies": {},
+        "headers": {},
+        "securitySchemes": {}
+    },
+    "security": [],
+    "tags": []
+}
