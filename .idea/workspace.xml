@@ -2,32 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dcd145fe-56f0-45f0-bf5b-e8908d322aa5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/Entity/Admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.env" beforeDir="false" afterPath="$PROJECT_DIR$/app/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/Controller/ApiEffectifController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Controller/ApiEffectifController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/Controller/EffectifUpdateAt.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Controller/EffectifUpdateAt.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/Entity/Customers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Entity/Customers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/Entity/Effectif.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/Repository/CustomersRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Repository/CustomersRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/Repository/EffectifRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Repository/EffectifRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tests/Unit/ConstomersTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/Unit/ConstomersTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tests/Unit/EffectiveTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/tests/Unit/EffectiveTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ib_buffer_pool" beforeDir="false" afterPath="$PROJECT_DIR$/data/ib_buffer_pool" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DockerFile" beforeDir="false" afterPath="$PROJECT_DIR$/DockerFile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/Controller/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Controller/RegisterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/ib_logfile0" beforeDir="false" afterPath="$PROJECT_DIR$/data/ib_logfile0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/data/ibdata1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/ibtmp1" beforeDir="false" afterPath="$PROJECT_DIR$/data/ibtmp1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/mysql/innodb_index_stats.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/data/mysql/innodb_index_stats.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/mysql/innodb_table_stats.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/data/mysql/innodb_table_stats.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/vhosts/project.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/vhosts/project.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/API/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -167,12 +162,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docker/vhosts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docker/php" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ordinateur\Desktop\superAPI\docker\php" />
       <recent name="C:\Users\Ordinateur\Desktop\superAPI\docker\vhosts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -187,11 +183,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612556195839</updated>
-      <workItem from="1612556197966" duration="12142000" />
+      <workItem from="1612556197966" duration="29319000" />
+      <workItem from="1612621603126" duration="3287000" />
+      <workItem from="1612625887300" duration="3338000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/src/Entity/customers.php</url>
+          <line>4</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
