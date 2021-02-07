@@ -1,0 +1,19 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+#api_login_check:
+# path: /api/login_check
+
+api_platform:
+  resource: .
+  type: api_platform
+  prefix: /api
+
+app_swagger_ui:
+  path: /api
+  methods: GET
+  defaults: { _controller: api_platform.swagger.action.ui, area: default }
+
+login:
+  path: /login
+  methods: ["POST"]

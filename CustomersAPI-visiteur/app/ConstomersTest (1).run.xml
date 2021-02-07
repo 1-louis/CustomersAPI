@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="ConstomersTest (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+    <TestRunner class="App\Tests\Unit\ConstomersTest" configuration_file="$PROJECT_DIR$/skeleton/vendor/bin/simple-phpunit" file="$PROJECT_DIR$/skeleton/tests/Unit/ConstomersTest.php" scope="XML" />
+    <method v="2" />
+  </configuration>
+</component>
