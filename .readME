@@ -1,0 +1,26 @@
+#crée le fichier : migrations
+
+#lancer la comande :
+composer install 
+pour instaler les dependences 
+
+#lancer la comande :
+ symfony console d:d:C
+pour créer le database 
+
+#lancer la comande :
+ symfony console make:migration 
+pour faire les migration 
+
+#lancer la comande :
+ symfony console d:m:m
+pour finaliser la migration
+
+#lancer la comande :
+ symfony console d:F:l
+pour céer les fixtures
+
+
+
+	
+

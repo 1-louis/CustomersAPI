@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dcd145fe-56f0-45f0-bf5b-e8908d322aa5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/CustomersAPI-visiteur/app/getting-started" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/Repository/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomersAPI-visiteur/app/getting-started" beforeDir="false" afterPath="$PROJECT_DIR$/CustomersAPI-visiteur/app/getting-started" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomersAPI-visiteur/app/getting-started/build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/CustomersAPI-visiteur/app/getting-started/build.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -177,7 +177,7 @@
       <workItem from="1612621603126" duration="3287000" />
       <workItem from="1612625887300" duration="3338000" />
       <workItem from="1612795407286" duration="216000" />
-      <workItem from="1612797721577" duration="2079000" />
+      <workItem from="1612797721577" duration="3364000" />
     </task>
     <servers />
   </component>
