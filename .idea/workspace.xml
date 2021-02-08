@@ -2,20 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dcd145fe-56f0-45f0-bf5b-e8908d322aa5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DockerFile" beforeDir="false" afterPath="$PROJECT_DIR$/DockerFile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/Controller/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Controller/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ib_logfile0" beforeDir="false" afterPath="$PROJECT_DIR$/data/ib_logfile0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/data/ibdata1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ibtmp1" beforeDir="false" afterPath="$PROJECT_DIR$/data/ibtmp1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mysql/innodb_index_stats.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/data/mysql/innodb_index_stats.ibd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mysql/innodb_table_stats.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/data/mysql/innodb_table_stats.ibd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/vhosts/project.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/vhosts/project.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomersAPI-visiteur/app/getting-started" beforeDir="false" afterPath="$PROJECT_DIR$/CustomersAPI-visiteur/app/getting-started" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomersAPI-visiteur/app/getting-started/build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/CustomersAPI-visiteur/app/getting-started/build.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/Controller/CustomersUpdateAtController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Controller/CustomersUpdateAtController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/Controller/RegisterController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/Entity/Admin.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/Entity/customers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Entity/customers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/Form/RgisterTypes.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/Repository/CustomersRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/Repository/EffectifRepository.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,6 +150,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1o4qQRbalBXkAz4IWPshif4U1Q3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="foldersAlwaysOnTop" value="false" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -186,6 +186,8 @@
       <workItem from="1612556197966" duration="29319000" />
       <workItem from="1612621603126" duration="3287000" />
       <workItem from="1612625887300" duration="3338000" />
+      <workItem from="1612795407286" duration="216000" />
+      <workItem from="1612797721577" duration="1743000" />
     </task>
     <servers />
   </component>

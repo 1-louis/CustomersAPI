@@ -4,7 +4,6 @@
 namespace App\Controller;
 
 
-use App\Entity\Admin;
 use App\Entity\customers;
 class CustomersUpdateAtController
 {
