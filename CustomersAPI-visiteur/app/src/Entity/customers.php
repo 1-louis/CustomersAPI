@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Repository\EffectifRepository;
+use App\Repository\CategoriesRepository;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -15,7 +15,7 @@ use ApiPlatform\Core\Annotation\ApiFilter;
 use App\Controller\CustomersUpdateAtController;
 
 /**
- * @ORM\Entity(repositoryClass=EffectifRepository::class)
+ * @ORM\Entity(repositoryClass=CategoriesRepository::class)
  * @var \DateTimeInterface
  *
  *@ApiResource(
@@ -137,12 +137,6 @@ class customers
      */
     private $EFFECTIF;
 
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Admin::class, inversedBy="effectifs_id")
-     *
-     */
-    private $Effec_id;
 
     /**
      * @var DateTimeInterface
@@ -323,17 +317,7 @@ class customers
         return $this;
     }
 
-    public function getEffecId(): ?Admin
-    {
-        return $this->Effec_id;
-    }
 
-    public function setEffecId(?Admin $Effec_id): self
-    {
-        $this->Effec_id = $Effec_id;
-
-        return $this;
-    }
 
     public function getCreatedAt(): DateTimeInterface
     {
